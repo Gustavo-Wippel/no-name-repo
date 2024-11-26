@@ -3,7 +3,7 @@ import type { UserConfig } from "@commitlint/types";
 const Configuration: UserConfig = {
   parserPreset: {
     parserOpts: {
-      headerPattern: /^(\w+)\((FIN|PTF|PAY)-(\d+)\): (.+)$/, // A regex captura "PTF-1", "FIN-123", etc.
+      headerPattern: /^(\w+)\((FIN|PTF|PAY)-(\d+)\): (.+)$/, // A regex valida o commit com prefixo e número
       headerCorrespondence: ["type", "scope", "id", "subject"],
     },
   },
@@ -28,7 +28,7 @@ const Configuration: UserConfig = {
             ];
           }
 
-          return [true];
+          return [true]; // Se o escopo for válido
         },
       },
     },
