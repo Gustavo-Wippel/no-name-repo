@@ -24,7 +24,9 @@ const Configuration: UserConfig = {
           const validScopePattern = /^(FIN|PTF|PAY)$/;
 
           console.log(id, scope);
-          if (!scope || !validScopePattern.test(scope) || id) {
+          console.log("id", id);
+          console.log("scope", scope);
+          if (!scope || !validScopePattern.test(scope) || id <= 0) {
             return [
               false,
               "O escopo do commit deve ser um dos prefixos FIN, PTF ou PAY seguido de um número, ex: PTF-123.",
