@@ -3,7 +3,6 @@ import type { UserConfig } from "@commitlint/types";
 const Configuration: UserConfig = {
   parserPreset: {
     parserOpts: {
-      // Regex para garantir que o commit tenha o formato tipo(scope): assunto
       headerPattern: /^(\w+)\((FIN|PTF|PAY)-(\d+)\): (.+)$/,
       headerCorrespondence: ["type", "scope", "id", "subject"],
     },
@@ -20,10 +19,12 @@ const Configuration: UserConfig = {
     {
       rules: {
         // Validação personalizada para garantir que o scope esteja correto
-        "custom-scope": ({ scope }) => {
+        "custom-scope": ({ scope, subject }) => {
           // Regex para garantir que o scope tenha o formato adequado
           const validScopePattern = /^(FIN|PTF|PAY)-\d+$/;
 
+          console.log("scope", scope);
+          console.log("subject", subject);
           if (!scope || !validScopePattern.test(scope)) {
             return [
               false,
