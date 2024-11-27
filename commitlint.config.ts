@@ -23,10 +23,11 @@ const Configuration: UserConfig = {
           // Regex para garantir que o scope tenha o formato adequado
           const validScopePattern = /^(FIN|PTF|PAY)$/;
 
+          //TODO: Ajustar para ver a questão de adicionar numero da task
           console.log(id, scope);
           console.log("id", id);
           console.log("scope", scope);
-          if (!scope || !validScopePattern.test(scope) || id <= 0) {
+          if (!scope || !validScopePattern.test(scope)) {
             return [
               false,
               "O escopo do commit deve ser um dos prefixos FIN, PTF ou PAY seguido de um número, ex: PTF-123.",
