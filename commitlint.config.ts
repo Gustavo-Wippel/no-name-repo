@@ -47,25 +47,15 @@ const prompter = async (cz, commit) => {
       ],
     },
     {
-      type: 'list',
-      name: 'team',
-      message: 'Qual é o time responsável?',
-      choices: [
-        { name: 'OF', value: 'OF' },
-        { name: 'PTF', value: 'PTF' },
-        { name: 'BM', value: 'BM' },
-      ],
-    },
-    {
       type: 'input',
       name: 'ticket_id',
-      message: 'Qual o número da tarefa? (ex: PTF-1234)',
-      validate: (input) => /^([A-Za-z]+-\d+)$/.test(input) || 'O formato da tarefa está incorreto.',
+      message: 'Qual o número da tarefa e time? (ex: PTF-1234)',
+      validate: (input) => /^([A-Za-z]+-\d+)$/.test(input) || 'O formato da tarefa está incorreto. Exemplo: PTF-1234.',
     },
     {
       type: 'input',
       name: 'subject',
-      message: 'Escreva uma descrição curta e no tempo imperativo da mudança',
+      message: 'Escreva uma descrição curta referente a tarefa: ',
       validate: (input) => input.length > 0 || 'A descrição não pode estar vazia.',
     },
   ];
@@ -82,13 +72,12 @@ const prompter = async (cz, commit) => {
       answers.ticket_id,
       answers.subject,
     ),
-    `${answers.team}-${answers.ticket_id}`, // Adiciona o time e o número da tarefa
+    answers.ticket_id, 
   ]
     .filter(Boolean)
     .join('\n\n')
     .trim();
 
-  // Envia o commit gerado
   commit(commitMessage);
 };
 
