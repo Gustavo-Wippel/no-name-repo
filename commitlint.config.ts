@@ -1,23 +1,21 @@
 const wrap = require('word-wrap');
+const cz = require('commitizen'); 
 
-// Função para obter a configuração (exemplo com limite de caracteres)
 const getConfiguration = async () => {
   return {
-    maxCommitLineWidth: 100, // Máximo de caracteres por linha
+    maxCommitLineWidth: 100,
     headerFormat: '{type}({scope}): {subject}', // Formato do cabeçalho
   };
 };
 
-// Função para formatar o cabeçalho do commit
 const formatHeader = (headerFormat, type, scope, ticketId, subject) => {
   return headerFormat
-    .replace('{type}', type) // Tipo da tarefa (feat ou fix)
-    .replace('{scope}', scope) // Módulo
-    .replace('{subject}', subject) // Breve descrição
-    .replace('{ticket_id}', ticketId); // Número da tarefa
+    .replace('{type}', type)
+    .replace('{scope}', scope) 
+    .replace('{subject}', subject) 
+    .replace('{ticket_id}', ticketId);
 };
 
-// Função que cria o questionário para o commit
 const prompter = async (cz, commit) => {
   const configuration = await getConfiguration();
   const wrapOptions = {
@@ -26,7 +24,6 @@ const prompter = async (cz, commit) => {
     width: configuration.maxCommitLineWidth,
   };
 
-  // Perguntas personalizadas
   const questions = [
     {
       type: 'list',
