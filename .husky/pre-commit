@@ -1,0 +1,4 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npx --no-install commitizen --editor 'npx commitlint --edit' "$@"

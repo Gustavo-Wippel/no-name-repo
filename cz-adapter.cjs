@@ -1,12 +1,5 @@
 module.exports = {
-  rules: {
-    'type-case': [2, 'always', 'lower-case'],
-    'type-empty': [2, 'never'],
-    'type-enum': [2, 'always', ['feat', 'fix', 'chore', 'refactor', 'test', 'docs', 'style']],
-    'scope-empty': [2, 'never'],
-  },
-
-  extends: './commitlint.config.cjs',  prompter: async (inquirer) => {
+  prompter: async (inquirer) => {
     const answers = await inquirer.prompt([
       {
         type: 'list',

@@ -2,7 +2,7 @@
   "name": "vite-template",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "commit": "git-cz",
     "dev": "vite",
@@ -12,9 +12,9 @@
     "prepare": "husky install"
   },
   "config": {
-      "commitizen": {
-        "path": "./commitlint.config.cjs"
-      }
+    "commitizen": {
+      "path": "./cz-adapter.cjs"
+    }
   },
   "dependencies": {
     "@nextui-org/button": "2.0.38",
