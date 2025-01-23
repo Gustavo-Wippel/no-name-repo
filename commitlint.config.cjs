@@ -6,7 +6,7 @@ module.exports = {
     'scope-empty': [2, 'never'],
   },
 
-  extends: './commitlint.config.cjs',  prompter: async (inquirer) => {
+  prompter: async (inquirer) => {
     const answers = await inquirer.prompt([
       {
         type: 'list',
