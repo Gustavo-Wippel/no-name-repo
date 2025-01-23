@@ -4,5 +4,7 @@ import { useNavigate } from "react-router-dom";
 export function Provider({ children }: { children: React.ReactNode }) {
   const navigate = useNavigate();
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
   return <NextUIProvider navigate={navigate}>{children}</NextUIProvider>;
 }
