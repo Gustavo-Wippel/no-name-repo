@@ -25,7 +25,7 @@ export function Login() {
       <BackgroundContainer>
         <div className="flex justify-center bg-white items-center rounded-r-md flex-col w-1/2 h-full">
           <div className="flex items-center text-xl pb-2 font-bold">
-            Sign In Maria Gordinha
+            Sign In
           </div>
           <InputContainer>
             <Input
